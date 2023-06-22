@@ -1,3 +1,26 @@
+/* import {Link} from "next/link"
+
+export default function NavBar() {
+  return (
+    <>
+      <nav id="nav-bar" class="links w-full">
+        <Link className="nav-imagem" src="../">
+          <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
+        </Link>
+        <Link className="links nav-cardapio" src="../">
+          <i className="fa-solid fa-calendar-minus"></i>Cardápio
+        </Link>
+        <a className="links nav-monte-sua-pizza" src="../monte-sua-pizza">
+          <i className="fa-solid fa-pizza-slice"></i>Monte sua pizza
+        </a>
+        <Link className="links nav-login" src="../cadastro">
+          <i className="fa-solid fa-user"></i>Cadastro
+        </Link>
+      </nav>
+    </>
+  );
+} */
+
 export default function NavBar() {
   return (
     <>
