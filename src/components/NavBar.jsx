@@ -9,18 +9,20 @@ export default function NavBar() {
           <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
         </Link>
         <Link className="links nav-cardapio" src="@/app/">
-          <i className="fa-solid fa-calendar-minus"></i>Cardápio
+          <FontAwesomeIcon icon={faCalendarMinus} /> Cardápio
         </Link>
         <Link className="links nav-monte-sua-pizza" src="@/app/monte-sua-pizza">
-          <i className="fa-solid fa-pizza-slice"></i>Monte sua pizza
+          <FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza
         </Link>
         <Link className="links nav-login" src="@/app/cadastro">
-          <i className="fa-solid fa-user"></i>Cadastro
+          <FontAwesomeIcon icon={faUser} /> Cadastro
         </Link>
       </nav>
     </>
   );
 } */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarMinus, faPizzaSlice, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
   return (
@@ -30,13 +32,13 @@ export default function NavBar() {
           <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
         </a>
         <a className="links nav-cardapio">
-          <i className="fa-solid fa-calendar-minus"></i>Cardápio
+          <FontAwesomeIcon icon={faCalendarMinus} /> Cardápio
         </a>
         <a className="links nav-monte-sua-pizza">
-          <i className="fa-solid fa-pizza-slice"></i>Monte sua pizza
+          <FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza
         </a>
         <a className="links nav-login">
-          <i className="fa-solid fa-user"></i>Cadastro
+          <FontAwesomeIcon icon={faUser} /> Cadastro
         </a>
       </nav>
     </>
