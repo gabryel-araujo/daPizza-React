@@ -1,27 +1,33 @@
 import { NavBar } from "../components/navBar";
 import { Footer } from "../components/Footer";
 
-import { useState } from "react";
-import Swal from "sweetalert2";
+import React, { useState, useRef } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Home() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [address, setAddress] = useState("");
-  const [neighborhood, setNeighborhood] = useState("");
-  const [city, setCity] = useState("");
-  const [additional, setAdditional] = useState("");
-  const [houseNumber, setHouseNumber] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [address, setAddress] = useState('');
+  const [additional, setAdditional] = useState('');
+  const [houseNumber, setHouseNumber] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
+  const [city, setCity] = useState('');
 
-  const validateUsername = () => {
-    return username.length < 3;
+  const fullNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
+  const zipCodeRef = useRef(null);
+
+  const validateFullName = () => {
+    return fullName.length < 3;
   };
 
   const validateEmail = () => {
-    return email.includes("@") && email.includes(".com");
+    return email.includes('@') && email.includes('.com');
   };
 
   const validatePassword = () => {
@@ -32,7 +38,7 @@ export default function Home() {
     return passwordConfirm.length < 6 || passwordConfirm.length === 0;
   };
 
-  const getZipcode = async () => {
+  const getZipCode = async () => {
     const url = `https://viacep.com.br/ws/${zipCode}/json`;
     const response = await fetch(url);
     const data = await response.json();
@@ -49,27 +55,28 @@ export default function Home() {
 
   const validateUser = () => {
     if (
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      passwordConfirm === "" ||
+      fullName === '' ||
+      email === '' ||
+      password === '' ||
+      passwordConfirm === '' ||
       password !== passwordConfirm ||
-      zipCode === "" ||
+      zipCode === '' ||
       password.length < 6
     ) {
-      Swal.fire("Error", "A senha deve conter no mínimo 6 caracteres", "error");
+      Swal.fire('Error', 'A senha deve conter no mínimo 6 caracteres', 'error');
       return false;
     }
     return true;
   };
 
-  const registerUser = () => {
+  const registerUser = (e) => {
+    e.preventDefault();
     const storageExists = isOnStorage();
     if (validateUser() && !storageExists) {
       localStorage.setItem(
         email,
         JSON.stringify({
-          name: username,
+          name: fullName,
           email: email,
           password: password,
           address: address,
@@ -80,17 +87,17 @@ export default function Home() {
           zipcode: zipCode,
         })
       );
-      Swal.fire("Tudo certo!", "Cadastro realizado com sucesso", "success");
-    } else if (username === "") {
-      document.getElementById("fullName").focus();
-    } else if (email === "") {
-      document.getElementById("email").focus();
-    } else if (password === "") {
-      document.getElementById("password").focus();
-    } else if (passwordConfirm === "") {
-      document.getElementById("passwordConfirm").focus();
-    } else if (zipCode === "") {
-      document.getElementById("zipCode").focus();
+      Swal.fire('Tudo certo!', 'Cadastro realizado com sucesso', 'success');
+    } else if (fullName === '') {
+      fullNameRef.current.focus();
+    } else if (email === '') {
+      emailRef.current.focus();
+    } else if (password === '') {
+      passwordRef.current.focus();
+    } else if (passwordConfirm === '') {
+      passwordConfirmRef.current.focus();
+    } else if (zipCode === '') {
+      zipCodeRef.current.focus();
     }
   };
 
@@ -119,6 +126,7 @@ export default function Home() {
                             className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
+                            ref={fullNameRef}
                           />
                         </div>
                         <div className="md:col-span-5">
@@ -131,6 +139,7 @@ export default function Home() {
                             className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            ref={emailRef}
                           />
                         </div>
                         <div className="md:col-span-5">
@@ -143,6 +152,7 @@ export default function Home() {
                             className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            ref={passwordRef}
                           />
                         </div>
                         <div className="md:col-span-5">
@@ -155,6 +165,7 @@ export default function Home() {
                             className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                             value={passwordConfirm}
                             onChange={(e) => setPasswordConfirm(e.target.value)}
+                            ref={passwordConfirmRef}
                           />
                         </div>
                         <div className="md:col-span-5">
@@ -167,6 +178,7 @@ export default function Home() {
                             className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                             value={zipCode}
                             onChange={(e) => setZipCode(e.target.value)}
+                            ref={zipCodeRef}
                           />
                         </div>
                         <div className="md:col-span-5">
