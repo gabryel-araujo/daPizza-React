@@ -1,4 +1,5 @@
 // import Image from "next/image";
+'use client';
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { pizza_premium, pizza_tradicional, pizza_doce } from "./pizzas";
