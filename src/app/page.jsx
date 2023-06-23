@@ -1,6 +1,6 @@
 // import Image from "next/image";
-import {NavBar} from "@/components/NavBar";
-import {Footer} from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { pizza_premium, pizza_tradicional, pizza_doce } from "./pizzas";
 
 const Premium = pizza_premium.map((pizza, index) => {

@@ -1,4 +1,5 @@
-/* import {Link} from "next/link"
+/* 
+import {Link} from "next/link"
 
 export default function NavBar() {
   return (
@@ -10,9 +11,9 @@ export default function NavBar() {
         <Link className="links nav-cardapio" src="@/app/">
           <i className="fa-solid fa-calendar-minus"></i>Cardápio
         </Link>
-        <a className="links nav-monte-sua-pizza" src="@/app/monte-sua-pizza">
+        <Link className="links nav-monte-sua-pizza" src="@/app/monte-sua-pizza">
           <i className="fa-solid fa-pizza-slice"></i>Monte sua pizza
-        </a>
+        </Link>
         <Link className="links nav-login" src="@/app/cadastro">
           <i className="fa-solid fa-user"></i>Cadastro
         </Link>
