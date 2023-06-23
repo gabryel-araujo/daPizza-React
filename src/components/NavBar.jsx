@@ -9,13 +9,13 @@ export default function NavBar() {
           <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
         </Link>
         <Link className="links nav-cardapio" src="@/app/">
-          <FontAwesomeIcon icon={faCalendarMinus} /> Cardápio
+          <i><FontAwesomeIcon icon={faCalendarMinus} /> Cardápio</i>
         </Link>
         <Link className="links nav-monte-sua-pizza" src="@/app/monte-sua-pizza">
-          <FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza
+          <i><FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza</i>
         </Link>
         <Link className="links nav-login" src="@/app/cadastro">
-          <FontAwesomeIcon icon={faUser} /> Cadastro
+          <i><FontAwesomeIcon icon={faUser} /> Cadastro</i>
         </Link>
       </nav>
     </>
@@ -32,13 +32,13 @@ export default function NavBar() {
           <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
         </a>
         <a className="links nav-cardapio">
-          <FontAwesomeIcon icon={faCalendarMinus} /> Cardápio
+          <i><FontAwesomeIcon icon={faCalendarMinus} /> Cardápio</i>
         </a>
         <a className="links nav-monte-sua-pizza">
-          <FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza
+          <i><FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza</i>
         </a>
         <a className="links nav-login">
-          <FontAwesomeIcon icon={faUser} /> Cadastro
+          <i><FontAwesomeIcon icon={faUser} /> Cadastro</i>
         </a>
       </nav>
     </>

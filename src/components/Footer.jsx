@@ -13,10 +13,10 @@ export default function Footer() {
           DaPizza, sua melhor opção na hora de pedir pizza!
         </p>
         <a href="https://www.instagram.com/" target="_blank">
-          <FontAwesomeIcon icon={faInstagram} className="links" />
+          <i className="links"><FontAwesomeIcon icon={faInstagram}  /></i>
         </a>
         <a href="https://pt-br.facebook.com/" target="_blank">
-          <FontAwesomeIcon icon={faFacebook} className="links" />
+          <i className="links"><FontAwesomeIcon icon={faFacebook}/></i>
         </a>
       </div>
     </>
