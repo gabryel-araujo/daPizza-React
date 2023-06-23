@@ -1,4 +1,5 @@
 import "./globals.css";
+/* import "https://kit.fontawesome.com/f1952cfd14.js"; */
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
