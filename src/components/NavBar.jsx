@@ -1,27 +1,36 @@
-/* 
-import {Link} from "next/link"
+import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarMinus, faPizzaSlice, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
   return (
-    <>
-      <nav id="nav-bar" class="links w-full">
-        <Link className="nav-imagem" src="@/app/">
+    <nav id="nav-bar" className="links w-full">
+      <Link legacyBehavior href="/">
+        <a className="nav-imagem">
           <img id="logo" alt="logo da pizzaria" src="/logoPizzaria.png" />
-        </Link>
-        <Link className="links nav-cardapio" src="@/app/">
+        </a>
+      </Link>
+      <Link legacyBehavior href="/">
+        <a className="links nav-cardapio">
           <i><FontAwesomeIcon icon={faCalendarMinus} /> Cardápio</i>
-        </Link>
-        <Link className="links nav-monte-sua-pizza" src="@/app/monte-sua-pizza">
+        </a>
+      </Link>
+      <Link legacyBehavior href="/monte-sua-pizza">
+        <a className="links nav-monte-sua-pizza">
           <i><FontAwesomeIcon icon={faPizzaSlice} /> Monte sua pizza</i>
-        </Link>
-        <Link className="links nav-login" src="@/app/cadastro">
+        </a>
+      </Link>
+      <Link legacyBehavior href="/cadastro">
+        <a className="links nav-login">
           <i><FontAwesomeIcon icon={faUser} /> Cadastro</i>
-        </Link>
-      </nav>
-    </>
+        </a>
+      </Link>
+    </nav>
   );
-} */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+}
+
+
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarMinus, faPizzaSlice, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavBar() {
@@ -44,3 +53,4 @@ export default function NavBar() {
     </>
   );
 }
+ */
