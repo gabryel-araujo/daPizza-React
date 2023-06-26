@@ -2,7 +2,7 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Swal from 'sweetalert2';
 
 export default function Home() {
