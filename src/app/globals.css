@@ -566,7 +566,7 @@ select {
 
 .bodyCadastro,
 .bodyUsuarios {
-  background-image: url(/public/images/madeira-bg.png);
+  background-image: url(/madeira-bg.png);
   background-position: center;
   background-position-y: -130px;
 }
