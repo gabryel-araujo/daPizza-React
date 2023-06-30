@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 export default function Footer() {
   return (
     <>
@@ -11,10 +14,10 @@ export default function Footer() {
           DaPizza, sua melhor opção na hora de pedir pizza!
         </p>
         <a href="https://www.instagram.com/" target="_blank">
-          <i className="fa fa-brands fa-instagram links"></i>
+          <i className="links"><FontAwesomeIcon icon={faInstagram}  /></i>
         </a>
         <a href="https://pt-br.facebook.com/" target="_blank">
-          <i className="fa fa-brands fa-facebook links"></i>
+          <i className="links"><FontAwesomeIcon icon={faFacebook}/></i>
         </a>
       </div>
     </>
