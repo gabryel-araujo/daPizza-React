@@ -570,3 +570,7 @@ select {
   background-position: center;
   background-position-y: -130px;
 }
+
+.wheat {
+  background-color: wheat;
+}
