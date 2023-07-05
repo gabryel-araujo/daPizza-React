@@ -78,7 +78,7 @@ const pizza_tradicional = [
     id: "pizza-4queijos",
     category: "tradicional",
     image: "/4-queijos.jpg",
-    name: "4 Quejjos<",
+    name: "4 Quejjos",
     description:
       "Queijo mussarela, gorgonzola, provolone, requeijão, azeitona preta e orégano.",
     value: 30.0,

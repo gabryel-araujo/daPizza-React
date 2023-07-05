@@ -16,7 +16,7 @@ const Premium = pizza_premium.map((pizza, index) => {
           alt={pizza.name}
         ></img>
         <div className="descricao-sabor">
-          <h3>{pizza.name}</h3>
+          <h3 className="lorem">{pizza.name}</h3>
           <p className="descricao-pizza">{pizza.description}</p>
           <p>
             <i>Massa Premium</i>
@@ -43,7 +43,7 @@ const Tradicionais = pizza_tradicional.map((pizza, index) => {
           alt={pizza.name}
         ></img>
         <div className="descricao-sabor">
-          <h3>{pizza.name}</h3>
+          <h3 className="lorem">{pizza.name}</h3>
           <p className="descricao-pizza">{pizza.description}</p>
           <p>
             <i>Massa Tradicional</i>
@@ -70,7 +70,7 @@ const Doces = pizza_doce.map((pizza, index) => {
           alt={pizza.name}
         ></img>
         <div className="descricao-sabor">
-          <h3>{pizza.name}</h3>
+          <h3 className="lorem">{pizza.name}</h3>
           <p className="descricao-pizza">{pizza.description}</p>
           <p>
             <i>Massa Tradicional</i>
