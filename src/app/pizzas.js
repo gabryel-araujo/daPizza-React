@@ -96,7 +96,7 @@ const pizza_tradicional = [
     id: 'pizza-franpiry"',
     category: "tradicional",
     image: "/frango-catupiry.png",
-    name: "Frango Com Catupiry&reg;",
+    name: "Frango Com Catupiry",
     description:
       "Queijo mussarela, frango assado em cubos, com catupirry, milho, bacon, azeitona preta e orégano.",
     value: 30.0,
