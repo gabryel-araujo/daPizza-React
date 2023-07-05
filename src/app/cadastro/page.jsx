@@ -35,7 +35,7 @@ export default function Home() {
   const cityRef = useRef(null);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  setTimeout(() => {
+  setInterval(() => {
     setFullName(fullNameRef.current.value);
     setEmail(emailRef.current.value);
     setPassword(passwordRef.current.value);
@@ -97,7 +97,7 @@ export default function Home() {
     <>
       <NavBar />
       <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center bodyCadastro">
-        <div className="container max-w-screen-lg mx-auto mt-20">
+        <div className="container max-w-screen-lg mx-auto mt-20 justify-center items-center">
           <div className="flex justify-center items-center flex-col">
             <h2 className="font-semibold text-gray-600 titulos mb-5 mt-20">
               Faça seu cadastro

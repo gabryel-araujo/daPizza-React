@@ -2,6 +2,7 @@
 "use client";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { useRef } from "react";
 import { pizza_premium, pizza_tradicional, pizza_doce } from "./pizzas";
 
 const Premium = pizza_premium.map((pizza, index) => {
@@ -86,6 +87,10 @@ const Doces = pizza_doce.map((pizza, index) => {
 });
 
 export default function Home() {
+  const premiumRef = useRef(null);
+  const tradicionalRef = useRef(null);
+  const doceRef = useRef(null);
+
   return (
     <>
       <NavBar />
