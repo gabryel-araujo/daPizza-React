@@ -12,7 +12,8 @@
 - Construir um site que simule uma pizzaria com auxílio de linguagens de programação. 
 
 **Tecnologias utilizadas:**
-  <img align="center" alt="JS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg">
   <img align="center" alt="React" height="30" width="40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png">
+  <img align="center" alt="NextJS" height="30" width="40" src="https://testrigor.com/wp-content/uploads/2023/04/nextjs-logo-square.png">
+  <img align="center" alt="JS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg">
   <img align="center" alt="Tailwind" height="30" width="40" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg">
 </div>
