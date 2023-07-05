@@ -33,6 +33,7 @@ export default function Home() {
   const houseNumberRef = useRef(null);
   const neighborhoodRef = useRef(null);
   const cityRef = useRef(null);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   setTimeout(() => {
     setFullName(fullNameRef.current.value);
@@ -65,9 +66,10 @@ export default function Home() {
       passwordConfirm === "" ||
       password !== passwordConfirm ||
       zipCode === "" ||
-      password.length < 6
+      password.length < 6 ||
+      !emailRegex.test(email)
     ) {
-      Swal.fire("Error", "A senha deve conter no mínimo 6 caracteres", "error");
+      Swal.fire("Dados inválidos", "Verifique as informações", "error");
       return false;
     }
     registerUser();
@@ -126,7 +128,7 @@ export default function Home() {
                         id="email"
                         className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                         ref={emailRef}
-                        placeholder="email@email.com"
+                        placeholder="email@dominio.com"
                       />
                     </div>
                     <div className="md:col-span-3">
@@ -183,7 +185,7 @@ export default function Home() {
                         id="address"
                         className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                         ref={addressRef}
-                        value={address}
+                        defaultValue={address}
                         placeholder=""
                       />
                     </div>
@@ -223,7 +225,7 @@ export default function Home() {
                         id="neighborhood"
                         className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                         ref={neighborhoodRef}
-                        value={neighborhood}
+                        defaultValue={neighborhood}
                         placeholder=""
                       />
                     </div>
@@ -237,7 +239,7 @@ export default function Home() {
                         id="city"
                         className="h-14 border mt-1 rounded px-4 w-full bg-zinc-300 text-xl"
                         ref={cityRef}
-                        value={city}
+                        defaultValue={city}
                         placeholder=""
                       />
                     </div>
