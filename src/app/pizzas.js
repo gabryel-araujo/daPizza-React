@@ -5,7 +5,7 @@ const pizza_premium = [
     image: "/Queijo Especial.jpeg",
     name: "Queijo Especial",
     description:
-      "Farinha italiana,molho à base de creme de parmesão, mussarela,DorBlu, parmesão,noz e cranberry.",
+      "Farinha italiana, molho à base de creme de parmesão, mussarela,DorBlu, parmesão,noz e cranberry.",
     value: 40.0,
   },
   {
