@@ -1,5 +1,5 @@
-'use client';
-import { useState } from "react";
+"use client";
+import { useState, useRef } from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
@@ -8,12 +8,17 @@ export default function Home() {
   const [tipoMassa, setTipoMassa] = useState("");
   const [tipoQueijo, setTipoQueijo] = useState("");
   const [selecionarQuantidade, setSelecionarQuantidade] = useState(0);
-  const [recheio1, setRecheio1] = useState("");
-  const [recheio2, setRecheio2] = useState("");
-  const [recheio3, setRecheio3] = useState("");
+  const [recheio1, setRecheio1] = useState(0);
+  const [recheio2, setRecheio2] = useState(0);
+  const [recheio3, setRecheio3] = useState(0);
   const [tipoBorda, setTipoBorda] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [imagem, setImagem] = useState("");
+
+  const umSaborRef = useRef(null);
+  const doisSaboresRef = useRef(null);
+  const tresSaboresRef = useRef(null);
+  const selectRef = useRef(null);
 
   const tamanhoPreco = {
     Pequena: 15,
@@ -46,19 +51,28 @@ export default function Home() {
     "Sem Borda": 0,
   };
 
-  const montarPizza = () => {
-    if (selecionarQuantidade === 0) {
-      alert("Selecione uma opção");
-      setRecheio1("");
-      setRecheio2("");
-      setRecheio3("");
-    } else if (selecionarQuantidade === 1) {
-      setRecheio2("");
-      setRecheio3("");
-    } else if (selecionarQuantidade === 2) {
-      setRecheio3("");
-    }
-  };
+  function mostrarSabores() {
+    selectRef.current.value == 0
+      ? (umSaborRef.current.classList.add("hidden"),
+        doisSaboresRef.current.classList.add("hidden"),
+        tresSaboresRef.current.classList.add("hidden"))
+      : selectRef.current.value == 1
+      ? (umSaborRef.current.classList.remove("hidden"),
+        doisSaboresRef.current.classList.add("hidden"),
+        tresSaboresRef.current.classList.add("hidden"),
+        setSelecionarQuantidade(1))
+      : selectRef.current.value == 2
+      ? (umSaborRef.current.classList.remove("hidden"),
+        doisSaboresRef.current.classList.remove("hidden"),
+        tresSaboresRef.current.classList.add("hidden"),
+        setSelecionarQuantidade(2))
+      : selectRef.current.value == 3
+      ? (umSaborRef.current.classList.remove("hidden"),
+        doisSaboresRef.current.classList.remove("hidden"),
+        tresSaboresRef.current.classList.remove("hidden"),
+        setSelecionarQuantidade(3))
+      : "";
+  }
 
   const prices = () => {
     let texto;
@@ -89,7 +103,8 @@ export default function Home() {
       const ValorTotal = preco1 + preco2 + preco3 + preco4 + preco41 + preco5;
       texto = `Tamanho ${tamanhoPizza}, Massa ${tipoMassa}, com queijo ${tipoQueijo}. <br> Recheio: ${recheio1} e ${recheio2} com borda recheada de ${tipoBorda}.<br> Total: R$${ValorTotal}`;
     } else if (selecionarQuantidade === 3) {
-      const ValorTotal = preco1 + preco2 + preco3 + preco4 + preco41 + preco42 + preco5;
+      const ValorTotal =
+        preco1 + preco2 + preco3 + preco4 + preco41 + preco42 + preco5;
       texto = `Tamanho ${tamanhoPizza}, Massa ${tipoMassa}, com queijo ${tipoQueijo}. <br> Recheio: ${recheio1}, ${recheio2} e ${recheio3} com borda recheada de ${tipoBorda}.<br> Total: R$${ValorTotal}`;
     }
 
@@ -100,11 +115,11 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <main className="bodyCadastro">
+      <main className="bodyCadastro flex justify-center items-center">
         <div className="alinhar caixa-de-texto container">
           <div className="div1">
             <h1 className="titulos">Monte Sua Pizza</h1>
-            <h2>Escolha um tamanho:</h2>
+            <h2 className="text-2xl">Escolha um tamanho:</h2>
             <form id="formTamanho">
               <select
                 name="tamanho"
@@ -113,28 +128,32 @@ export default function Home() {
                 onChange={(e) => setTamanhoPizza(e.target.value)}
                 value={tamanhoPizza}
               >
+                <option value="">Selecione...</option>
                 <option value="Pequena">Pequena</option>
                 <option value="Média">Média</option>
                 <option value="Grande">Grande</option>
                 <option value="Família">Família</option>
               </select>
             </form>
-            <h2>Escolha um tipo de Massa:</h2>
+            <h2 className="text-2xl">Escolha um tipo de Massa:</h2>
             <form id="my-form2">
               <select
                 name="massa"
                 id="massa"
                 className="color"
-                onChange={(e) => setTipoMassa(e.target.value)}
+                onChange={(e) => {
+                  setTipoMassa(e.target.value);
+                }}
                 value={tipoMassa}
               >
+                <option value="">Selecione...</option>
                 <option value="Tradicional">Tradicional</option>
                 <option value="Integral">Integral</option>
                 <option value="Siciliana">Siciliana</option>
                 <option value="Napolitana">Napolitana</option>
               </select>
             </form>
-            <h2>Escolha um tipo de queijo:</h2>
+            <h2 className="text-2xl">Escolha um tipo de queijo:</h2>
             <form id="my-form3">
               <select
                 name="queijo"
@@ -143,29 +162,36 @@ export default function Home() {
                 onChange={(e) => setTipoQueijo(e.target.value)}
                 value={tipoQueijo}
               >
+                <option value="">Selecione...</option>
                 <option value="Mussarela">Mussarela</option>
                 <option value="Parmessão">Parmessão</option>
                 <option value="Provolone">Provolone</option>
                 <option value="Cheddar">Cheddar</option>
               </select>
             </form>
-            <h2>Escolha se deseja um, dois ou três recheios:</h2>
+            <h2 className="text-2xl">
+              Escolha se deseja um, dois ou três recheios:
+            </h2>
             <form id="my-formn">
               <select
                 name="recheio"
                 id="recheio"
                 className="color"
-                onChange={(e) => setSelecionarQuantidade(Number(e.target.value))}
+                onChange={() => {
+                  mostrarSabores();
+                  console.log(selectRef.current.value);
+                }}
                 value={selecionarQuantidade}
+                ref={selectRef}
               >
-                <option value={0}>Nenhum recheio</option>
-                <option value={1}>Um recheio</option>
-                <option value={2}>Dois recheios</option>
-                <option value={3}>Três recheios</option>
+                <option value="0">Selecione...</option>
+                <option value="1">Um recheio</option>
+                <option value="2">Dois recheios</option>
+                <option value="3">Três recheios</option>
               </select>
             </form>
-            <div id="divSabor1" className={selecionarQuantidade === 1 ? "" : "hidden"}>
-              <h2>Escolha o primeiro recheio:</h2>
+            <div id="divSabor1" className="hidden" ref={umSaborRef}>
+              <h2 className="text-2xl">Escolha o primeiro recheio:</h2>
               <select
                 name="recheio1"
                 id="recheio1"
@@ -173,14 +199,15 @@ export default function Home() {
                 onChange={(e) => setRecheio1(e.target.value)}
                 value={recheio1}
               >
+                <option value="">Selecione...</option>
                 <option value="Calabresa">Calabresa</option>
                 <option value="Bacon">Bacon</option>
                 <option value="Ovo">Ovo</option>
                 <option value="Manjericão">Manjericão</option>
               </select>
             </div>
-            <div id="divSabor2" className={selecionarQuantidade === 2 ? "" : "hidden"}>
-              <h2>Escolha o segundo recheio:</h2>
+            <div id="divSabor2" className="hidden" ref={doisSaboresRef}>
+              <h2 className="text-2xl">Escolha o segundo recheio:</h2>
               <select
                 name="recheio2"
                 id="recheio2"
@@ -188,14 +215,15 @@ export default function Home() {
                 onChange={(e) => setRecheio2(e.target.value)}
                 value={recheio2}
               >
+                <option value="">Selecione...</option>
                 <option value="Bacon">Bacon</option>
                 <option value="Ovo">Ovo</option>
                 <option value="Manjericão">Manjericão</option>
                 <option value="Calabresa">Calabresa</option>
               </select>
             </div>
-            <div id="divSabor3" className={selecionarQuantidade === 3 ? "" : "hidden"}>
-              <h2>Escolha o terceiro recheio:</h2>
+            <div id="divSabor3" className="hidden" ref={tresSaboresRef}>
+              <h2 className="text-2xl">Escolha o terceiro recheio:</h2>
               <select
                 name="recheio3"
                 id="recheio3"
@@ -203,6 +231,7 @@ export default function Home() {
                 onChange={(e) => setRecheio3(e.target.value)}
                 value={recheio3}
               >
+                <option value="">Selecione...</option>
                 <option value="Ovo">Ovo</option>
                 <option value="Manjericão">Manjericão</option>
                 <option value="Calabresa">Calabresa</option>
@@ -210,7 +239,7 @@ export default function Home() {
               </select>
             </div>
             {/* Fim do espaço dos recheios */}
-            <h2>Escolha uma borda recheada:</h2>
+            <h2 className="text-2xl">Escolha uma borda recheada:</h2>
             <form id="my-form5">
               <select
                 name="borda"
@@ -219,22 +248,23 @@ export default function Home() {
                 onChange={(e) => setTipoBorda(e.target.value)}
                 value={tipoBorda}
               >
+                <option value="">Selecione...</option>
                 <option value="Chocolate">Chocolate</option>
                 <option value="Catupiry">Catupiry</option>
                 <option value="Cheddar">Cheddar</option>
                 <option value="Sem Borda">Sem Borda</option>
               </select>
             </form>
-            <button className="botao" onClick={montarPizza}>
-              Montar minha Pizza
-            </button>
-            <button className="botao" onClick={prices}>
+            <button
+              className="botao inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-[0_4px_9px_-4px_rgba(51,45,45,0.7)] transition duration-150 ease-in-out hover:bg-neutral-800 hover:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:bg-neutral-800 focus:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-[0_8px_9px_-4px_rgba(51,45,45,0.2),0_4px_18px_0_rgba(51,45,45,0.1)] dark:bg-neutral-900 dark:shadow-[0_4px_9px_-4px_#030202] dark:hover:bg-neutral-900 dark:hover:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)] dark:focus:bg-neutral-900 dark:focus:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)] dark:active:bg-neutral-900 dark:active:shadow-[0_8px_9px_-4px_rgba(3,2,2,0.3),0_4px_18px_0_rgba(3,2,2,0.2)] text-2xl"
+              onClick={prices}
+            >
               Exibir preços
             </button>
           </div>
-          <div className="div2">
+          <div className="div2 flex flex-col justify-center items-center">
             <div
-              className="msg"
+              className="msg "
               dangerouslySetInnerHTML={{ __html: mensagem }}
             ></div>
             {imagem}
