@@ -5,7 +5,7 @@ const pizza_premium = [
     image: "/Queijo Especial.jpeg",
     name: "Queijo Especial",
     description:
-      "Farinha italiana, molho à base de creme de parmesão, mussarela,DorBlu, parmesão,noz e cranberry.",
+      "Farinha italiana, molho à base de creme de parmesão, mussarela, DorBlu, parmesão,noz e cranberry.",
     value: 40.0,
   },
   {
@@ -23,7 +23,7 @@ const pizza_premium = [
     image: "/à moda da casa.jpeg",
     name: "À Moda da Casa",
     description:
-      "Farinha italiana, molho de tomate integral, mussarela, carne bovina,calabresa, linguiça de caça, pimentão, cebola roxa,molho barbecue e orégano.  ",
+      "Farinha italiana, molho de tomate integral, mussarela, carne bovina, calabresa, linguiça de caça, pimentão, cebola roxa,molho barbecue e orégano.  ",
     value: 40.0,
   },
   {
@@ -32,7 +32,7 @@ const pizza_premium = [
     image: "/bacon.jpeg",
     name: "Bacon",
     description:
-      "Farinha italiana, molho detomate integral, mussarela,dorblu, bacon fatiado,pimenta, orégano. ",
+      "Farinha italiana, molho detomate integral, mussarela, dorblu, bacon fatiado,pimenta, orégano. ",
     value: 40.0,
   },
   {
@@ -62,7 +62,7 @@ const pizza_tradicional = [
     image: "/calabresa.png",
     name: "Calabresa",
     description:
-      "Queijo mussarela, fatias finasde cebola, rodelas de calabresa,azeitona preta e orégano.",
+      "Queijo mussarela, fatias finas de cebola, rodelas de calabresa, azeitona preta e orégano.",
     value: 30.0,
   },
   {
@@ -89,7 +89,7 @@ const pizza_tradicional = [
     image: "/brocolis.png",
     name: "Brócolis",
     description:
-      "Queijo mussarela fresco, brócolis, alho frito,orégano, molho especialde parmesão e queijo parmesão.",
+      "Queijo mussarela fresco, brócolis, alho frito, orégano, molho especial de parmesão e queijo parmesão.",
     value: 30.0,
   },
   {
@@ -107,7 +107,7 @@ const pizza_tradicional = [
     image: "/carne-de-sol.png",
     name: "Carne de Sol",
     description:
-      "Queijo mussarela, carne de soldesfiada, finas fatias de cebola, Requeijão cremoso, azeitona preta e orégano. ",
+      "Queijo mussarela, carne de sol desfiada, finas fatias de cebola, requeijão cremoso, azeitona preta e orégano. ",
     value: 30.0,
   },
   {
@@ -116,7 +116,7 @@ const pizza_tradicional = [
     image: "/frango-ao-barbecue.png",
     name: "Frango com Barbecue",
     description:
-      "Queijo mussarela, frangoassado desfiado, finasfatias de bacon, molho barbecue,azeitona preta e orégano.",
+      "Queijo mussarela, frango assado desfiado, finas fatias de bacon, molho barbecue, azeitona preta e orégano.",
     value: 30.0,
   },
   {
@@ -125,7 +125,7 @@ const pizza_tradicional = [
     image: "/frango-cheddar.png",
     name: "Frango com Cheddar",
     description:
-      "Queijo mussarela fresco, frango desfiado temperado com ervas finas ecobertura de Cheddar.",
+      "Queijo mussarela fresco, frango desfiado temperado com ervas finas e cobertura de Cheddar.",
     value: 30.0,
   },
   {
@@ -134,7 +134,7 @@ const pizza_tradicional = [
     image: "/picanha.png",
     name: "Picanha",
     description:
-      "Queijo mussarela fresco, fatias de picanha temperadacom ervas finas, sal, creme de alho e manjericão.",
+      "Queijo mussarela fresco, fatias de picanha temperada com ervas finas, sal, creme de alho e manjericão.",
     value: 30.0,
   },
 ];
