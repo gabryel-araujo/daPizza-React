@@ -569,6 +569,7 @@ select {
   background-image: url(/madeira-bg.png);
   background-position: center;
   background-position-y: -130px;
+  background-size: cover;
 }
 
 .wheat-bg {
