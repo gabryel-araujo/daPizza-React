@@ -20,7 +20,10 @@ export default function Home() {
   }, 500);
 
   async function getUsers() {
-    const { data, error } = await supabase.from("cliente").select("*");
+    const { data, error } = await supabase
+      .from("cliente")
+      .select("*")
+      .order("nome", { ascending: true });
     setUsers(data);
   }
 
@@ -55,7 +58,7 @@ export default function Home() {
             Remover
           </i>
         </button>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-4">
           {users.map((user) => (
             <div
               className="wheat-bg shadow-lg rounded-lg p-4 mb-5 mx-2 my-2"

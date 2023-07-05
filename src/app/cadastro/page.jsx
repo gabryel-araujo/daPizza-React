@@ -48,6 +48,19 @@ export default function Home() {
     setCity(cityRef.current.value);
   }, 500);
 
+  function clearForm() {
+    fullNameRef.current.value = "";
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    passwordConfirmRef.current.value = "";
+    zipCodeRef.current.value = "";
+    addressRef.current.value = "";
+    additionalRef.current.value = "";
+    houseNumberRef.current.value = "";
+    neighborhoodRef.current.value = "";
+    cityRef.current.value = "";
+  }
+
   const getZipCode = async (code) => {
     const url = `https://viacep.com.br/ws/${code}/json`;
     const response = await fetch(url);
@@ -73,6 +86,9 @@ export default function Home() {
       return false;
     }
     registerUser();
+    setTimeout(() => {
+      clearForm();
+    }, 1000);
   };
 
   const registerUser = async () => {
